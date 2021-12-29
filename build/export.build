@@ -1,0 +1,6 @@
+$out_root/
+{
+  include date/
+}
+
+export $out_root/date/$import.target

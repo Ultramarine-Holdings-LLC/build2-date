@@ -2,17 +2,13 @@ import libs = libcurl%lib{curl}
 
 lib{date}: {hxx cxx}{**} $libs
 
-cxx.poptions += "-I$src_upstream/include"
-cxx.poptions += "-DHAS_REMOTE_API=1" \
-                "-DAUTO_DOWNLOAD=1" \
-                "-DONLY_C_LOCALE"
+cxx.poptions =+ \
+    "-I$src_upstream/include" \
+    "-DHAS_REMOTE_API=1" \
+    "-DAUTO_DOWNLOAD=1" \
+    "-DONLY_C_LOCALE=1"
 
 lib{date}:
 {
   cxx.export.poptions = "-I$src_upstream/include"
-}
-
-../upstream/include/
-{
-  hxx{*}: install.subdirs = true
 }

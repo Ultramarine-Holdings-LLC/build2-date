@@ -1,6 +1,7 @@
 import libs = libcurl%lib{curl}
 
-lib{date}: {hxx cxx}{**} $libs
+./: lib{date}: include/date/hxx{date solar_hijri islamic iso_week julian}
+./: lib{date-tz}: include/date/hxx{tz tz_private} src/cxx{tz} lib{date} $libs
 
 cxx.poptions =+ \
     "-I$src_base/include" \
@@ -8,7 +9,19 @@ cxx.poptions =+ \
     "-DAUTO_DOWNLOAD=1" \
     "-DONLY_C_LOCALE=1"
 
+if ($cxx.target.class == 'windows')
+{
+    cxx.poptions =+ "-DDATE_BUILD_DLL=1"
+    lib{date-tz}: cxx.export.poptions =+ "-DDATE_BUILD_DLL=1"
+}
+
 lib{date}:
 {
+  cxx.export.poptions = "-I$src_base/include" "-DONLY_C_LOCALE=1"
+}
+
+lib{date-tz}:
+{
   cxx.export.poptions = "-I$src_base/include"
+
 }

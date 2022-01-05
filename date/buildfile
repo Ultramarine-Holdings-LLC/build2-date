@@ -26,3 +26,6 @@ lib{date-tz}:
   cxx.export.poptions = "-I$src_base/include"
 
 }
+
+hxx{*}: install = false
+include/date/hxx{*}: install = include/date/

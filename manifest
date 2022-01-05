@@ -1,9 +1,12 @@
 : 1
 name: date
 version: 3.0.1-a.0.z
-summary: date C++ library
+summary: A date and time library based on the C++11/14/17 <chrono> header
+description-file: upstream/README.md
 license: MIT
-url: https://github.com/HowardHinnant/date
+url: https://howardhinnant.github.io/date/date.html
+doc-url: https://howardhinnant.github.io/date/date.html
+src-url: https://github.com/HowardHinnant/date
 depends: * build2 >= 0.14.0
 depends: * bpkg >= 0.14.0
 depends: libcurl ^7.76.0

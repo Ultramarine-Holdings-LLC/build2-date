@@ -3,12 +3,12 @@ import libs = libcurl%lib{curl}
 lib{date}: {hxx cxx}{**} $libs
 
 cxx.poptions =+ \
-    "-I$src_upstream/include" \
+    "-I$src_base/include" \
     "-DHAS_REMOTE_API=1" \
     "-DAUTO_DOWNLOAD=1" \
     "-DONLY_C_LOCALE=1"
 
 lib{date}:
 {
-  cxx.export.poptions = "-I$src_upstream/include"
+  cxx.export.poptions = "-I$src_base/include"
 }

@@ -12,6 +12,7 @@ cxx.poptions =+ \
 if ($cxx.target.class == 'windows')
 {
     cxx.poptions =+ "-DDATE_BUILD_DLL=1"
+    cxx.libs =+ "ole32.lib" "advapi32.lib"
     lib{date-tz}: cxx.export.poptions =+ "-DDATE_BUILD_DLL=1"
 }
 

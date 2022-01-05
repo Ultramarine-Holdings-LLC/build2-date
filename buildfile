@@ -1,3 +1,3 @@
 ./: {*/ -build/ -upstream/} manifest
 
-test/: install = false
+tests/: install = false

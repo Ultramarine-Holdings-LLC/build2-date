@@ -5,9 +5,8 @@ import libs = libcurl%lib{curl}
 
 cxx.poptions =+ \
     "-I$src_base/include" \
-    "-DHAS_REMOTE_API=0" \
-    "-DAUTO_DOWNLOAD=0" \
-    "-DUSE_OS_TZDB=1" \
+    "-DHAS_REMOTE_API=1" \
+    "-DAUTO_DOWNLOAD=1" \
     "-DONLY_C_LOCALE=1"
 
 if ($cxx.target.class == 'windows')

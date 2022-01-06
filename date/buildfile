@@ -11,8 +11,6 @@ cxx.poptions =+ \
 
 if ($cxx.target.class == 'windows')
 {
-    {hbmis objs}{date-tz}: cxx.poptions =+ "-DDATE_BUILD_DLL=1"
-    libs{date-tz}: cxx.poptions =+ "-DDATE_BUILD_DLL=1"
     cxx.libs =+ "ole32.lib" "advapi32.lib"
 }
 
@@ -24,8 +22,10 @@ lib{date}:
 lib{date-tz}:
 {
   cxx.export.poptions = "-I$src_base/include"
-
 }
+
+{hbmis objs}{*}: cxx.poptions =+ "-DDATE_BUILD_DLL=1"
+libs{date-tz}: cxx.export.poptions =+ "-DDATE_USE_DLL=1"
 
 hxx{*}: install = false
 include/date/hxx{*}: install = include/date/

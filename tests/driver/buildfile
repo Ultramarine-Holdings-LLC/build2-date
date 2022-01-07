@@ -1,3 +1,6 @@
 import libs = date%lib{date-tz}
 
 exe{driver}: {hxx cxx}{*} $libs
+
+if ($config.date.tz_test)
+    cxx.poptions += "-DTEST_TZ"

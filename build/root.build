@@ -6,3 +6,5 @@ hxx{*}: extension = h
 cxx{*}: extension = cpp
 
 src_upstream = $src_root/upstream
+
+config [bool] config.date.tz_test ?= false

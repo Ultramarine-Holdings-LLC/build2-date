@@ -1,3 +1,5 @@
+cxx.std = latest
+
 using cxx
 
 hxx{*}: extension = hxx
@@ -6,3 +8,5 @@ cxx{*}: extension = cxx
 exe{*}: test = true
 
 test.target = $cxx.target
+
+config [bool] config.date.tz_test ?= false

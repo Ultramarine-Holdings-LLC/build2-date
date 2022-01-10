@@ -1,7 +1,7 @@
 import libs = libcurl%lib{curl}
 
 ./: lib{date}: include/date/hxx{date solar_hijri islamic iso_week julian}
-./: lib{date-tz}: include/date/hxx{tz tz_private} src/cxx{tz} lib{date} $libs
+./: lib{date-tz}: include/date/hxx{ios ptz tz tz_private} src/cxx{tz ios.mm} lib{date} $libs
 
 cxx.poptions =+ \
     "-I$src_base/include" \

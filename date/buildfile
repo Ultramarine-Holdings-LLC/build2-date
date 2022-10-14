@@ -1,12 +1,11 @@
-import libs = libcurl%lib{curl}
-
 ./: lib{date}: include/date/hxx{date solar_hijri islamic iso_week julian}
-./: lib{date-tz}: include/date/hxx{ios ptz tz tz_private} src/cxx{tz ios.mm} lib{date} $libs
+./: lib{date-tz}: include/date/hxx{ios ptz tz tz_private} src/cxx{tz ios.mm} lib{date}
 
 cxx.poptions =+ \
     "-I$src_base/include" \
-    "-DHAS_REMOTE_API=1" \
-    "-DAUTO_DOWNLOAD=1" \
+    "-DHAS_REMOTE_API=0" \
+    "-DAUTO_DOWNLOAD=0" \
+    "-DUSE_OS_TZDB=1" \
     "-DONLY_C_LOCALE=1"
 
 if ($cxx.target.class == 'windows')
